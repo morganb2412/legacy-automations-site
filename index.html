@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Legacy Automations | AI & Automation Engineering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Legacy Automations – AI-powered automation, workflows, and intelligent systems for modern businesses." />
+
+    <style>
+        :root {
+            /* Brand palette based on your logo */
+            --bg: #050506;
+            --bg-alt: #09090c;
+            --card: rgba(10, 10, 12, 0.96);
+            --border-soft: rgba(120, 110, 96, 0.45);
+
+            --accent: #f6e6d0;
+            /* light cream (text) */
+            --accent-2: #c37a3f;
+            /* copper / orange-brown */
+            --accent-3: #e2c99c;
+            /* softer beige highlight */
+            --accent-cyan: #f0d48a;
+            /* repurposed as light gold */
+
+            --text: #f5ede1;
+            --muted: #a79c8c;
+
+            --radius-xl: 24px;
+            --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.85);
+            --nav-height: 72px;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                "Segoe UI", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            background: radial-gradient(circle at top, #12121a 0, #020203 55%, #000 100%);
+            color: var(--text);
+            font-family: var(--font-sans);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        section {
+            padding: 5rem 0 4rem;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 2.75rem;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: 0.75rem;
+            color: var(--accent-2);
+            font-weight: 600;
+            margin-bottom: 0.65rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.85rem, 2.4vw, 2.4rem);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.25rem;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            max-width: 540px;
+            font-size: 0.98rem;
+        }
+
+        /* --- Top nav --- */
+
+        .nav-shell {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            backdrop-filter: blur(18px);
+            background: linear-gradient(to bottom,
+                    rgba(5, 5, 7, 0.98),
+                    rgba(5, 5, 7, 0.6),
+                    transparent);
+            border-bottom: 1px solid rgba(20, 20, 25, 0.95);
+        }
+
+        .nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            height: var(--nav-height);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-logo-img {
+            height: 32px;
+            width: auto;
+            border-radius: 999px;
+            object-fit: contain;
+            background: #000;
+            box-shadow: 0 0 0 1px rgba(30, 30, 36, 0.9);
+        }
+
+        .nav-title {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .nav-title span:first-child {
+            font-size: 0.92rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .nav-title span:last-child {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.7rem;
+            font-size: 0.86rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 2px;
+            transition: color 0.18s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+            transition: width 0.18s ease-out;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(246, 230, 208, 0.3);
+            background: radial-gradient(circle at 0% 0%,
+                    rgba(246, 230, 208, 0.16),
+                    rgba(10, 10, 11, 0.98));
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            cursor: pointer;
+            transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-cta span {
+            font-size: 0.9rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            border-color: var(--accent-2);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.95);
+        }
+
+        .nav-toggle {
+            display: none;
+            border: none;
+            background: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 1.3rem;
+        }
+
+        /* --- Hero --- */
+
+        #hero {
+            padding-top: 4.5rem;
+            padding-bottom: 4rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .badge-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.22rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid rgba(120, 110, 96, 0.6);
+            background: radial-gradient(circle at 0 0,
+                    rgba(246, 230, 208, 0.16),
+                    rgba(8, 8, 10, 0.98));
+            margin-bottom: 1.25rem;
+            font-size: 0.7rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.19em;
+        }
+
+        .badge-pill {
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(195, 122, 63, 0.85);
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.14em;
+        }
+
+        .hero-title {
+            font-size: clamp(2.55rem, 4vw, 3.4rem);
+            line-height: 1.08;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero-title span.gradient {
+            background: linear-gradient(120deg, #f2c15f, #f29b38, #f6e6d0);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subtitle {
+            color: var(--muted);
+            font-size: 0.98rem;
+            max-width: 480px;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 1.75rem;
+        }
+
+        .btn-primary {
+            padding: 0.78rem 1.5rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #201208;
+            background: linear-gradient(120deg, #f2c15f, #f29b38, #f6e6d0);
+            background-size: 180% 180%;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.95);
+            transition: transform 0.16s ease, box-shadow 0.16s ease,
+                background-position 0.25s ease-out;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 1);
+            background-position: 90% 0;
+        }
+
+        .btn-ghost {
+            padding: 0.78rem 1.4rem;
+            border-radius: 999px;
+            border: 1px solid rgba(120, 110, 96, 0.85);
+            background: rgba(10, 10, 11, 0.98);
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: border-color 0.16s ease, background 0.16s ease,
+                transform 0.16s ease;
+        }
+
+        .btn-ghost span.icon {
+            font-size: 1.1rem;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent-2);
+            background: rgba(6, 6, 7, 0.98);
+            transform: translateY(-1px);
+        }
+
+        .hero-footnote {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .hero-footnote span {
+            color: var(--accent-2);
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        /* Orb now uses warm logo colors instead of neon blue */
+        .orb {
+            width: 260px;
+            height: 260px;
+            border-radius: 999px;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(246, 230, 208, 0.9), rgba(248, 250, 252, 0) 55%),
+                radial-gradient(circle at 80% 0%, rgba(195, 122, 63, 0.9), rgba(15, 15, 18, 0.1) 65%),
+                radial-gradient(circle at 0% 100%, rgba(50, 33, 23, 0.9), rgba(5, 5, 7, 0.3) 70%);
+            box-shadow: 0 0 80px rgba(195, 122, 63, 0.35),
+                0 0 120px rgba(0, 0, 0, 0.9);
+            position: relative;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            isolation: isolate;
+        }
+
+        .orb-inner {
+            width: 164px;
+            height: 164px;
+            border-radius: 36px;
+            border: 1px solid rgba(35, 25, 18, 0.8);
+            background: radial-gradient(circle at 20% 0%,
+                    rgba(90, 70, 52, 0.65),
+                    rgba(6, 6, 7, 0.98));
+            backdrop-filter: blur(12px);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.95) inset;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .orb-label {
+            font-size: 0.76rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .orb-metric {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+        }
+
+        .orb-caption {
+            font-size: 0.78rem;
+            color: var(--accent-3);
+        }
+
+        .orb-tag {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            padding: 0.45rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(7, 7, 9, 0.98);
+            color: var(--accent-3);
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            border: 1px solid rgba(120, 110, 96, 0.8);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.95);
+        }
+
+        .hero-line {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 999px;
+            border: 1px dashed rgba(120, 110, 96, 0.6);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(12deg);
+            pointer-events: none;
+        }
+
+        /* --- Cards & grids --- */
+
+        .grid {
+            display: grid;
+            gap: 1.8rem;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .card {
+            position: relative;
+            padding: 1.35rem 1.35rem 1.4rem;
+            border-radius: var(--radius-xl);
+            background: radial-gradient(circle at 0 0,
+                    rgba(82, 66, 52, 0.25),
+                    rgba(6, 6, 7, 0.98));
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-soft);
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 0 0,
+                    rgba(246, 230, 208, 0.12),
+                    transparent 60%);
+            opacity: 0;
+            transition: opacity 0.25s ease-out;
+            pointer-events: none;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 20% 0, #f2c15f, #f29b38);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .card-title {
+            font-size: 1.02rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+        }
+
+        .card-body {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-tagline {
+            font-size: 0.8rem;
+            color: var(--accent-2);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .timeline {
+            border-radius: var(--radius-xl);
+            padding: 1.6rem 1.5rem;
+            background: radial-gradient(circle at 0 0,
+                    rgba(74, 63, 52, 0.18),
+                    rgba(7, 7, 9, 0.98));
+            border: 1px solid var(--border-soft);
+            box-shadow: var(--shadow-soft);
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+            gap: 2rem;
+        }
+
+        .timeline-step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.7rem 0.9rem;
+            align-items: start;
+            margin-bottom: 0.8rem;
+        }
+
+        .step-pill {
+            width: 26px;
+            height: 26px;
+            border-radius: 999px;
+            border: 1px solid rgba(120, 110, 96, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.82rem;
+            color: var(--accent-2);
+        }
+
+        .step-title {
+            font-size: 0.96rem;
+            font-weight: 600;
+        }
+
+        .step-body {
+            grid-column: 2 / -1;
+            font-size: 0.86rem;
+            color: var(--muted);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .contact-card {
+            padding: 1.6rem 1.5rem;
+            border-radius: var(--radius-xl);
+            background: var(--card);
+            border: 1px solid var(--border-soft);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .contact-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 1.3rem;
+        }
+
+        .contact-meta {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        form {
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--muted);
+        }
+
+        input,
+        textarea {
+            margin-top: 0.25rem;
+            border-radius: 999px;
+            border: 1px solid rgba(120, 110, 96, 0.8);
+            background: rgba(5, 5, 7, 0.98);
+            color: var(--text);
+            padding: 0.7rem 0.9rem;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.14s ease, box-shadow 0.14s ease;
+            width: 100%;
+        }
+
+        textarea {
+            border-radius: 18px;
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--accent-2);
+            box-shadow: 0 0 0 1px rgba(195, 122, 63, 0.5);
+        }
+
+        .form-row-inline {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
+        }
+
+        .form-footnote {
+            font-size: 0.78rem;
+            color: var(--muted);
+        }
+
+        footer {
+            border-top: 1px solid rgba(26, 21, 17, 0.9);
+            padding: 1.6rem 1.5rem 2.2rem;
+            font-size: 0.78rem;
+            color: var(--muted);
+            display: flex;
+            justify-content: center;
+        }
+
+        footer a {
+            color: var(--accent-2);
+            text-decoration: none;
+            margin-left: 0.3rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero-right {
+                order: -1;
+            }
+
+            .timeline {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .grid-3 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-links {
+                position: fixed;
+                inset: calc(var(--nav-height) + 4px) 1rem auto 1rem;
+                flex-direction: column;
+                padding: 0.9rem 1rem 1rem;
+                border-radius: 18px;
+                background: rgba(5, 5, 7, 0.98);
+                border: 1px solid rgba(120, 110, 96, 0.7);
+                transform-origin: top;
+                transform: scaleY(0.8);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.16s ease, transform 0.16s ease;
+            }
+
+            .nav-links.open {
+                opacity: 1;
+                transform: scaleY(1);
+                pointer-events: auto;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+            }
+
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .page {
+                padding-inline: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <div class="nav-shell">
+        <nav class="nav">
+            <div class="nav-left">
+                <!-- Replace src path with your actual logo path -->
+                <img src="LOGO.png" alt="Legacy Automations logo" class="nav-logo-img" />
+                <div class="nav-title">
+                    <span>LEGACY AUTOMATIONS</span>
+                    <span>AI &amp; AUTOMATION STUDIO</span>
+                </div>
+            </div>
+
+            <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">☰</button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#hero">Home</a>
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#work">Use Cases</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <button class="nav-cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+                <span>Book a Discovery Call</span> ⟶
+            </button>
+        </nav>
+    </div>
+
+    <main class="page">
+
+        <!-- Hero -->
+        <section id="hero">
+            <div class="hero-grid">
+                <div class="hero-left reveal">
+                    <!-- Hero logo echo -->
+
+
+                    <div class="badge-row">
+                        <span class="badge-pill">AI + Automation</span>
+                        <span>From workflow chaos to governed intelligence</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Automating today.<br />
+                        <span class="gradient">Designing your AI legacy.</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Legacy Automations builds opinionated, governance-driven automations and AI assistants that
+                        eliminate repetitive work, hard-code best practices, and scale with your business instead of
+                        breaking it.
+                    </p>
+
+                    <div class="hero-actions">
+                        <button class="btn-primary"
+                            onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+                            Start a Project
+                        </button>
+
+                        <button class="btn-ghost"
+                            onclick="document.querySelector('#work').scrollIntoView({behavior:'smooth'})">
+                            <span class="icon">▶</span>
+                            View example automations
+                        </button>
+                    </div>
+
+                    <p class="hero-footnote">
+                        <span>Structured by design.</span> From Google Workspace and Apps Script to AI-native
+                        workflows, every system ships with guardrails, documentation, and observability.
+                    </p>
+                </div>
+
+                <div class="hero-right reveal">
+                    <div class="orb">
+                        <div class="hero-line"></div>
+                        <div class="orb-inner">
+                            <div class="orb-label">Automation Throughput</div>
+                            <div class="orb-metric">24/7</div>
+                            <div class="orb-caption">Bots don’t sleep. Humans do.</div>
+                        </div>
+                        <div class="orb-tag">Governed AI</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services">
+            <header class="section-header reveal">
+                <p class="eyebrow">Capabilities</p>
+                <h2 class="section-title">What Legacy Automations ships for you</h2>
+                <p class="section-subtitle">
+                    From low-code workflows to full-stack AI agents, we design systems that plug directly into the
+                    tools you already live in: Google Workspace, cloud platforms, and your line-of-business apps.
+                </p>
+            </header>
+
+            <div class="grid grid-3">
+                <article class="card reveal">
+                    <div class="card-icon">⚙️</div>
+                    <h3 class="card-title">Automation Engineering</h3>
+                    <p class="card-body">
+                        Design, build, and harden automations that stitch together email, approvals, spreadsheets,
+                        shared drives, and back-office systems. Less swivel-chair, more signal.
+                    </p>
+                    <p class="card-tagline">Workflows • Orchestration • Observability</p>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon">🧠</div>
+                    <h3 class="card-title">AI Assistants &amp; RAG</h3>
+                    <p class="card-body">
+                        Build focused AI copilots that answer questions using <em>your</em> policies, SOPs, and
+                        knowledge — with retrieval, guardrails, and human-in-the-loop baked in.
+                    </p>
+                    <p class="card-tagline">Vertex / Gemini • Governance • Guardrails</p>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Ops Intelligence</h3>
+                    <p class="card-body">
+                        Surface the metrics that matter: automation coverage, time saved, exception patterns, and
+                        which manual tasks should be automated next.
+                    </p>
+                    <p class="card-tagline">Dashboards • Feedback loops</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section id="process">
+            <header class="section-header reveal">
+                <p class="eyebrow">Approach</p>
+                <h2 class="section-title">How we turn messy processes into governed systems</h2>
+                <p class="section-subtitle">
+                    No “mystery bots”. Every engagement is scoped, documented, and designed to be owned long-term —
+                    by you or by your team.
+                </p>
+            </header>
+
+            <div class="timeline reveal">
+                <div>
+                    <h3 style="font-size:1rem; margin-bottom:0.5rem;">01 • Map the messy reality</h3>
+                    <p style="font-size:0.9rem; color:var(--muted);">
+                        We start with the actual chaos: screenshots, spreadsheets, tribal knowledge, and the way
+                        work <em>really</em> flows through your org today.
+                    </p>
+                    <br />
+                    <h3 style="font-size:1rem; margin-bottom:0.5rem;">02 • Design the governed future</h3>
+                    <p style="font-size:0.9rem; color:var(--muted);">
+                        Together we design the target workflow, define exception handling, access rules, and
+                        documentation requirements — before a single line of code ships.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="timeline-step">
+                        <div class="step-pill">1</div>
+                        <div class="step-title">Discovery &amp; triage</div>
+                        <div class="step-body">
+                            Quick interviews + artifact review to identify high-leverage automations and risks. We
+                            prioritize impact over gimmicks.
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-pill">2</div>
+                        <div class="step-title">Blueprint &amp; architecture</div>
+                        <div class="step-body">
+                            We translate your process into a concrete design: triggers, data sources, AI interactions,
+                            and governance layers.
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-pill">3</div>
+                        <div class="step-title">Build, test, and harden</div>
+                        <div class="step-body">
+                            Automations are built with logging, alerting, and rollback paths. You get a staging run
+                            before anything touches production.
+                        </div>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-pill">4</div>
+                        <div class="step-title">Launch &amp; iterate</div>
+                        <div class="step-body">
+                            We launch with change-management in mind and instrument everything so we can iterate based
+                            on real-world usage and feedback.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section id="work">
+            <header class="section-header reveal">
+                <p class="eyebrow">Sample Use Cases</p>
+                <h2 class="section-title">Where Legacy Automations makes the biggest dent</h2>
+                <p class="section-subtitle">
+                    A few examples of the kind of systems we love to build. Your stack and constraints will shape
+                    the implementation — the patterns stay the same.
+                </p>
+            </header>
+
+            <div class="grid grid-2">
+                <article class="card reveal">
+                    <div class="card-icon">📩</div>
+                    <h3 class="card-title">Finance inbox to live ledger</h3>
+                    <p class="card-body">
+                        Emails with attachments get parsed, validated, and pushed into structured sheets or databases.
+                        Exceptions are flagged to humans with one-click decisions; processed emails get auto-labeled
+                        and archived.
+                    </p>
+                    <p class="card-tagline">NLP • PDF parsing • Sheets/DB sync</p>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon">👥</div>
+                    <h3 class="card-title">AI assistant for internal tools</h3>
+                    <p class="card-body">
+                        A chat-style assistant embedded in your workspace that understands your policies, sites, and
+                        SOPs — and can trigger automations like provisioning, access changes, or report generation.
+                    </p>
+                    <p class="card-tagline">RAG • IAM-aware actions</p>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon">🚛</div>
+                    <h3 class="card-title">Ops &amp; field automation</h3>
+                    <p class="card-body">
+                        Turn route changes, incidents, or requests into structured workflows that update schedules,
+                        notify the right teams, and capture data for analytics — automatically.
+                    </p>
+                    <p class="card-tagline">Scheduling • Alerts • Analytics</p>
+                </article>
+
+                <article class="card reveal">
+                    <div class="card-icon">🔐</div>
+                    <h3 class="card-title">Governed access &amp; audits</h3>
+                    <p class="card-body">
+                        Automations that keep your groups, drives, and sites clean: ownership checks, access reviews,
+                        alerting on risky changes, and tidy-up tasks that run on a schedule.
+                    </p>
+                    <p class="card-tagline">Policy as data • Compliance</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <header class="section-header reveal">
+                <p class="eyebrow">Let’s Build</p>
+                <h2 class="section-title">Tell us about the manual work you’re done with</h2>
+                <p class="section-subtitle">
+                    Share a bit about your stack and your pain points. We’ll come back with a practical
+                    automation/AI roadmap — not a 50-slide pitch deck.
+                </p>
+            </header>
+
+            <div class="contact-grid">
+                <div class="contact-card reveal">
+                    <h3>Start a discovery call</h3>
+                    <p>
+                        Send a quick snapshot of your environment and the workflows you want to offload. We’ll
+                        schedule a short working session to explore impact, risk, and possible paths forward.
+                    </p>
+
+                    <div class="contact-meta">
+                        <p>Ideal topics for the first call:</p>
+                        <ul style="margin-top:0.4rem; padding-left:1.1rem; line-height:1.5;">
+                            <li>Where your team spends the most repetitive time</li>
+                            <li>Key tools in your stack (Google Workspace, CRMs, ERPs, etc.)</li>
+                            <li>Any data/compliance guardrails we should know up front</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="contact-card reveal">
+                    <!-- NOTE: for GitHub Pages you'll want to hook this to Formspree, Basin, or a custom backend -->
+                    <form id="contactForm">
+                        <div class="form-row-inline">
+                            <div>
+                                <label for="name">Name</label>
+                                <input id="name" name="name" type="text" placeholder="Jordan from ACME Corp" required />
+                            </div>
+                            <div>
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" placeholder="you@company.com" required />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="company">Company / Team</label>
+                            <input id="company" name="company" type="text" placeholder="Ops, Finance, IT, RevOps..." />
+                        </div>
+
+                        <div>
+                            <label for="message">What do you want to automate?</label>
+                            <textarea id="message" name="message"
+                                placeholder="Give us 3–4 sentences about your workflow, tools, and what 'done' looks like."></textarea>
+                        </div>
+
+                        <button class="btn-primary" type="submit">
+                            Send Discovery Request
+                        </button>
+
+                        <p class="form-footnote" id="formStatus">
+                            This form is static by default. Hook it up to Formspree, Basin, Apps Script, or your own
+                            endpoint to start receiving messages.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <span>© <span id="year"></span> Legacy Automations. Built with code, not templates.</span>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        navToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+        });
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => navLinks.classList.remove("open"));
+        });
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        revealEls.forEach((el) => observer.observe(el));
+
+        // Footer year
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Fake form handler for static hosting
+        const form = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            formStatus.textContent =
+                "Form submitted locally. Connect this to Formspree, Basin, Apps Script, or your own endpoint to receive real submissions.";
+        });
+    </script>
+</body>
+
+</html>
