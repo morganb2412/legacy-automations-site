@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <title>Legacy Automations | AI & Automation Engineering</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="Legacy Automations – AI-powered automation, workflows, and intelligent systems for modern businesses."/>
+<meta name="description" content="Legacy Automations builds custom automation, AI, cloud, and business applications that reduce repetitive work, connect systems, and scale with your business."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -342,10 +342,56 @@ section{padding:6rem 0;position:relative;z-index:1;}
   max-width:520px;line-height:1.8;font-weight:300;
 }
 
+/* ── PLAIN-ENGLISH BRIDGE ── */
+#plain-english{padding:5rem 0 0;}
+
+.plain-panel{
+  border:1px solid var(--border2);
+  background:
+    linear-gradient(135deg,rgba(195,122,63,0.08),transparent 45%),
+    var(--bg-card);
+  border-radius:4px;
+  padding:2.5rem;
+  position:relative;
+  overflow:hidden;
+}
+
+.plain-panel::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--copper),transparent);
+}
+
+.problem-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0.75rem;
+  margin-top:2rem;
+}
+
+.problem-item{
+  font-size:0.84rem;
+  color:var(--cream-dim);
+  line-height:1.6;
+  padding:0.9rem 1rem;
+  background:rgba(5,5,6,0.55);
+  border:1px solid var(--border);
+  border-radius:3px;
+}
+
+.plain-bottom{
+  margin-top:1.5rem;
+  font-size:0.86rem;
+  color:var(--cream-dim);
+  line-height:1.75;
+}
+.plain-bottom strong{color:var(--cream);}
+
 /* ── SERVICES ── */
 .services-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
@@ -713,6 +759,8 @@ footer{
 }
 @media(max-width:640px){
   .services-grid{grid-template-columns:1fr;}
+  .problem-grid{grid-template-columns:1fr;}
+  .plain-panel{padding:1.75rem;}
   .form-row{grid-template-columns:1fr;}
   .nav-links{
     display:none;position:fixed;
@@ -774,9 +822,9 @@ footer{
       <div class="hero-left reveal">
         <div class="status-bar">
           <span class="status-dot"></span>
-          <span>AI + Automation</span>
+          <span>Automation + AI + Cloud</span>
           <span style="color:var(--border2);margin:0 0.25rem;">|</span>
-          <span>From workflow chaos to governed intelligence</span>
+          <span>Built for everyday business and enterprise scale</span>
         </div>
 
         <h1 class="hero-title">
@@ -786,14 +834,14 @@ footer{
         </h1>
 
         <p class="hero-sub">
-          Legacy Automations builds opinionated, governance-driven automations and AI assistants that
-          eliminate repetitive work, hard-code best practices, and scale with your business instead of
-          breaking it.
+          Legacy Automations helps businesses of every size reduce repetitive work, connect the tools
+          they already use, and build smarter AI-powered systems — from everyday workflows to secure
+          enterprise automation and custom applications.
         </p>
 
         <div class="hero-actions">
           <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-            Start a Project
+            Tell Us What You Want to Automate
           </button>
           <button class="btn-ghost" onclick="document.querySelector('#work').scrollIntoView({behavior:'smooth'})">
             Explore use cases →
@@ -801,8 +849,8 @@ footer{
         </div>
 
         <p class="hero-footnote">
-          <strong>Structured by design.</strong> From Google Workspace and Apps Script to AI-native
-          workflows, every system ships with guardrails, documentation, and observability.
+          <strong>Business-first. Technically built to last.</strong> Google Cloud · Google Workspace ·
+          Microsoft 365 · AI &amp; Agents · APIs · Custom Applications
         </p>
       </div>
 
@@ -816,31 +864,31 @@ footer{
             <span class="terminal-title">legacy-agent · automation-runtime</span>
           </div>
           <div class="terminal-body">
-            <div class="t-comment"># initializing governance layer...</div>
-            <div><span class="t-prompt">$</span> <span class="t-cmd">legacy init --env production</span></div>
-            <div class="t-out">✓ Workflow engine: online</div>
-            <div class="t-out">✓ AI copilot: connected</div>
-            <div class="t-out">✓ Guardrails: active</div>
-            <div class="t-out">✓ Observability: streaming</div>
+            <div class="t-comment"># turning a manual process into a working system...</div>
+            <div><span class="t-prompt">$</span> <span class="t-cmd">legacy assess --business-process</span></div>
+            <div class="t-out">✓ Repetitive steps identified</div>
+            <div class="t-out">✓ Business systems connected</div>
+            <div class="t-out">✓ Approvals &amp; handoffs automated</div>
+            <div class="t-out">✓ AI assistance added where useful</div>
             <div>&nbsp;</div>
-            <div><span class="t-prompt">$</span> <span class="t-cmd">legacy run --all-workflows</span></div>
-            <div class="t-warn">↳ 24 automations deployed</div>
-            <div class="t-warn">↳ 847 tasks/hour processed</div>
-            <div class="t-out">✓ 0 manual interventions required</div>
+            <div><span class="t-prompt">$</span> <span class="t-cmd">legacy deploy --production</span></div>
+            <div class="t-warn">↳ Logging &amp; guardrails enabled</div>
+            <div class="t-warn">↳ Documentation generated</div>
+            <div class="t-out">✓ Ready for real-world operations</div>
             <div>&nbsp;</div>
             <div><span class="t-prompt">$</span> <span class="t-cmd">legacy status</span></div>
-            <div class="t-out">STATUS: GOVERNED · RUNNING · 24/7</div>
+            <div class="t-out">STATUS: LESS MANUAL WORK · MORE CONTROL</div>
             <div><span class="t-prompt">$</span> <span class="t-cursor"></span></div>
           </div>
         </div>
         <div class="stat-chips">
           <div class="stat-chip">
             <span class="chip-val">24/7</span>
-            <span class="chip-label">Uptime</span>
+            <span class="chip-label">Automation</span>
           </div>
           <div class="stat-chip">
             <span class="chip-val">0</span>
-            <span class="chip-label">Mystery Bots</span>
+            <span class="chip-label">Mystery Systems</span>
           </div>
           <div class="stat-chip">
             <span class="chip-val">100%</span>
@@ -855,66 +903,106 @@ footer{
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-inner">
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Automation Engineering</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>AI Assistants &amp; RAG</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Ops Intelligence</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Business Process Automation</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>AI Assistants &amp; Agents</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>Google Workspace</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Microsoft 365</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Google Cloud</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Custom Business Applications</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>APIs &amp; Integrations</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>Governed AI</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Agent Platform / Gemini</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Workflow Orchestration</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Compliance-Ready</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Automation Engineering</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>AI Assistants &amp; RAG</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Ops Intelligence</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Business Process Automation</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>AI Assistants &amp; Agents</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>Google Workspace</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Microsoft 365</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Google Cloud</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Custom Business Applications</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>APIs &amp; Integrations</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>Governed AI</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Agent Platform / Gemini</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Workflow Orchestration</div>
-    <div class="ticker-item"><span class="ticker-sep">◆</span>Compliance-Ready</div>
   </div>
 </div>
+
+<!-- PLAIN-ENGLISH BRIDGE -->
+<section id="plain-english" style="position:relative;z-index:1;">
+  <div class="page">
+    <div class="plain-panel reveal">
+      <div class="plain-copy">
+        <p class="eyebrow">Start With The Problem</p>
+        <h2 class="section-title">You don't need to speak tech.</h2>
+        <p class="section-sub" style="max-width:620px;">
+          You do not need to know whether your business needs an API, AI agent, workflow, cloud service,
+          or custom application. Tell us what is slowing your team down, and we'll design the right solution.
+        </p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="problem-item">“We copy information from emails into spreadsheets.”</div>
+        <div class="problem-item">“Approvals keep getting lost in email.”</div>
+        <div class="problem-item">“Employees ask the same questions over and over.”</div>
+        <div class="problem-item">“Our systems don't talk to each other.”</div>
+        <div class="problem-item">“We create the same reports every week.”</div>
+        <div class="problem-item">“We have a process that still depends on one person doing it manually.”</div>
+      </div>
+
+      <p class="plain-bottom">
+        <strong>Bring us the business problem.</strong> We handle the automation, AI, cloud, integrations,
+        security, and engineering behind it.
+      </p>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section id="services" style="position:relative;z-index:1;">
   <div class="page">
     <header class="reveal">
       <p class="eyebrow">Capabilities</p>
-      <h2 class="section-title">What Legacy Automations ships for you</h2>
+      <h2 class="section-title">What Legacy Automations can build for your business</h2>
       <p class="section-sub">
-        From low-code workflows to full-stack AI agents, we design systems that plug directly into the
-        tools you already live in: Google Workspace, cloud platforms, and your line-of-business apps.
+        Whether you need one repetitive task automated or a secure system that supports an entire
+        organization, we combine practical business outcomes with production-ready engineering.
       </p>
     </header>
 
     <div class="services-grid">
       <article class="svc-card reveal" data-num="01">
         <div class="svc-icon">⚙️</div>
-        <h3 class="svc-title">Automation Engineering</h3>
+        <h3 class="svc-title">Business Process Automation</h3>
         <p class="svc-body">
-          Design, build, and harden automations that stitch together email, approvals, spreadsheets,
-          shared drives, and back-office systems. Less swivel-chair, more signal.
+          Automate repetitive tasks, approvals, notifications, reporting, data entry, document handling,
+          and administrative work so your team can spend more time on work that actually needs people.
         </p>
-        <p class="svc-tags">Workflows · Orchestration · Observability</p>
+        <p class="svc-tags">Workflows · Apps Script · Power Automate · APIs · Orchestration</p>
       </article>
 
       <article class="svc-card reveal" data-num="02">
         <div class="svc-icon">🧠</div>
-        <h3 class="svc-title">AI Assistants &amp; RAG</h3>
+        <h3 class="svc-title">AI Assistants &amp; Agents</h3>
         <p class="svc-body">
-          Build focused AI copilots that answer questions using <em>your</em> policies, SOPs, and
-          knowledge — with retrieval, guardrails, and human-in-the-loop baked in.
+          Give employees or customers AI tools that can answer questions, understand company information,
+          find the right documents, assist with decisions, and help complete real business tasks.
         </p>
-        <p class="svc-tags">Agent Platform / Gemini · Governance · Guardrails</p>
+        <p class="svc-tags">Gemini · RAG · AI Agents · Vertex AI · Guardrails</p>
       </article>
 
       <article class="svc-card reveal" data-num="03">
-        <div class="svc-icon">📊</div>
-        <h3 class="svc-title">Ops Intelligence</h3>
+        <div class="svc-icon">☁️</div>
+        <h3 class="svc-title">Cloud &amp; Workspace Automation</h3>
         <p class="svc-body">
-          Surface the metrics that matter: automation coverage, time saved, exception patterns, and
-          which manual tasks should be automated next.
+          Make Google Workspace, Microsoft 365, Google Cloud, and your other business systems work
+          together automatically — including provisioning, permissions, files, email, and integrations.
         </p>
-        <p class="svc-tags">Dashboards · Feedback Loops</p>
+        <p class="svc-tags">Google Cloud · Google Workspace · Microsoft 365 · IAM · APIs</p>
+      </article>
+
+      <article class="svc-card reveal" data-num="04">
+        <div class="svc-icon">🧩</div>
+        <h3 class="svc-title">Custom Business Applications</h3>
+        <p class="svc-body">
+          Need something your current software cannot do? We build custom internal tools, portals,
+          workflow applications, and AI-enabled systems around the way your business actually operates.
+        </p>
+        <p class="svc-tags">Python · FastAPI · Cloud Apps · Databases · AI Integrations</p>
       </article>
     </div>
   </div>
@@ -925,10 +1013,10 @@ footer{
   <div class="page">
     <header class="reveal">
       <p class="eyebrow">Approach</p>
-      <h2 class="section-title">How we turn messy processes into governed systems</h2>
+      <h2 class="section-title">How we turn manual work into systems that scale</h2>
       <p class="section-sub">
-        No "mystery bots". Every engagement is scoped, documented, and designed to be owned long-term —
-        by you or by your team.
+        We start with how the work happens today, then design, build, test, and document a solution
+        your business can actually rely on long-term.
       </p>
     </header>
 
@@ -936,13 +1024,13 @@ footer{
       <div class="process-left">
         <p class="proc-heading">01 · Map the messy reality</p>
         <p class="proc-body">
-          We start with the actual chaos: screenshots, spreadsheets, tribal knowledge, and the way
-          work <em>really</em> flows through your org today.
+          We start with the actual process: emails, spreadsheets, forms, screenshots, handoffs, and the way
+          work <em>really</em> flows through your business today.
         </p>
         <p class="proc-heading">02 · Design the governed future</p>
         <p class="proc-body">
-          Together we design the target workflow, define exception handling, access rules, and
-          documentation requirements — before a single line of code ships.
+          Together we design the better process, define exceptions, access rules, integrations, and
+          documentation requirements — before anything moves into production.
         </p>
       </div>
 
@@ -989,10 +1077,10 @@ footer{
   <div class="page">
     <header class="reveal">
       <p class="eyebrow">Sample Use Cases</p>
-      <h2 class="section-title">Automation Systems We Architect</h2>
+      <h2 class="section-title">What this can look like in a real business</h2>
       <p class="section-sub">
-        A few examples of the kind of systems we love to build. Your stack and constraints will shape
-        the implementation — the patterns stay the same.
+        Some businesses need a simple workflow. Others need AI, cloud infrastructure, custom applications,
+        or enterprise governance. These examples show the range.
       </p>
     </header>
 
@@ -1001,9 +1089,9 @@ footer{
         <p class="case-num">01</p>
         <h3 class="case-title">Budget aggregation &amp; forecasting workflow</h3>
         <p class="case-body">
-          Distributed budget data from multiple teams is pulled into a centralized model, validated, and
-          structured for analysis. Forecasting logic calculates projections and variance insights
-          automatically. A finalized executive-ready summary is generated and distributed via email.
+          Instead of managers emailing spreadsheets and someone manually combining them, budget data is
+          collected, validated, analyzed, and turned into forecasts automatically. Leadership receives
+          an executive-ready summary without the usual spreadsheet chase.
         </p>
         <p class="case-tags">Data Aggregation · Forecasting · Executive Reporting</p>
       </article>
@@ -1012,8 +1100,9 @@ footer{
         <p class="case-num">02</p>
         <h3 class="case-title">AI assistant for internal tools</h3>
         <p class="case-body">
-          A chat-style assistant embedded in your workspace that understands your policies, sites, and
-          SOPs — and can trigger automations like provisioning, access changes, or report generation.
+          Employees can ask a company-specific AI assistant questions about policies, procedures, files,
+          or internal tools. With the right permissions, it can also help complete tasks such as access
+          requests, provisioning, or report generation.
         </p>
         <p class="case-tags">RAG · IAM-Aware Actions</p>
       </article>
@@ -1022,8 +1111,9 @@ footer{
         <p class="case-num">03</p>
         <h3 class="case-title">Ops &amp; field automation</h3>
         <p class="case-body">
-          Turn route changes, incidents, or requests into structured workflows that update schedules,
-          notify the right teams, and capture data for analytics — automatically.
+          Route changes, incidents, service requests, or field updates can automatically notify the right
+          people, update schedules, capture information, and keep operations moving without repeated
+          calls, texts, or manual updates.
         </p>
         <p class="case-tags">Scheduling · Alerts · Analytics</p>
       </article>
@@ -1032,8 +1122,8 @@ footer{
         <p class="case-num">04</p>
         <h3 class="case-title">Governed access &amp; audits</h3>
         <p class="case-body">
-          Automations that keep your groups, drives, and sites clean: ownership checks, access reviews,
-          alerting on risky changes, and tidy-up tasks that run on a schedule.
+          Keep groups, shared drives, sites, and permissions organized automatically with ownership checks,
+          scheduled access reviews, alerts for risky changes, and recurring cleanup tasks.
         </p>
         <p class="case-tags">Policy as Data · Compliance</p>
       </article>
@@ -1140,23 +1230,24 @@ footer{
   <div class="contact-wrap">
     <div class="contact-info reveal">
       <p class="eyebrow" style="margin-bottom:1.5rem;">Let's Build</p>
-      <h2 class="section-title" style="max-width:400px;">Tell us about the manual work you're done with</h2>
+      <h2 class="section-title" style="max-width:400px;">Tell us what is slowing your business down</h2>
       <p style="font-size:0.9rem;color:var(--cream-dim);line-height:1.8;margin-bottom:2rem;font-weight:300;">
-        Share a bit about your stack and your pain points. We'll come back with a practical
-        automation/AI roadmap — not a 50-slide pitch deck.
+        You do not need to know what technology you need. Tell us what your team does manually,
+        where work gets stuck, or what you wish your systems could do. We'll help map the right path forward.
       </p>
 
       <h3 class="contact-info h3">Start a discovery call</h3>
       <p class="contact-info p" style="margin-bottom:1rem;">
-        Send a quick snapshot of your environment and the workflows you want to offload.
-        We'll schedule a short working session to explore impact, risk, and possible paths forward.
+        Send a quick snapshot of your business, the tools you use, and the work you want to improve.
+        We'll use the first conversation to understand the problem and identify practical automation,
+        AI, cloud, or custom-development options.
       </p>
 
       <p class="contact-meta-label">Ideal topics for the first call</p>
       <ul class="contact-list">
         <li>Where your team spends the most repetitive time</li>
-        <li>Key tools in your stack (Google Workspace, CRMs, ERPs, etc.)</li>
-        <li>Any data/compliance guardrails we should know up front</li>
+        <li>Tools you already use (Google Workspace, Microsoft 365, CRMs, ERPs, etc.)</li>
+        <li>Any security, data, compliance, or approval requirements</li>
       </ul>
     </div>
 
@@ -1175,11 +1266,11 @@ footer{
           </div>
           <div>
             <label class="field-label" for="company">Company / Team</label>
-            <input id="company" name="company" type="text" placeholder="Ops, Finance, IT, RevOps..."/>
+            <input id="company" name="company" type="text" placeholder="Business name, department, or team..."/>
           </div>
           <div>
             <label class="field-label" for="message">What do you want to automate?</label>
-            <textarea id="message" name="message" placeholder="Give us 3–4 sentences about your workflow, tools, and what 'done' looks like."></textarea>
+            <textarea id="message" name="message" placeholder="Tell us what happens today, what feels repetitive or frustrating, and what you wish happened automatically."></textarea>
           </div>
           <button class="btn-primary" type="submit" style="width:100%;justify-content:center;">
             Send Discovery Request
