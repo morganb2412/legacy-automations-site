@@ -195,6 +195,12 @@ body::before{
   color:var(--copper2);
 }
 
+.hero-tagline{
+  font-family:var(--mono);font-size:0.78rem;font-weight:500;
+  color:var(--copper);letter-spacing:0.03em;
+  margin-bottom:1.25rem;
+}
+
 .hero-sub{
   font-size:0.98rem;color:var(--cream-dim);
   line-height:1.8;max-width:480px;
@@ -391,7 +397,7 @@ section{padding:6rem 0;position:relative;z-index:1;}
 /* ── SERVICES ── */
 .services-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
@@ -500,7 +506,7 @@ section{padding:6rem 0;position:relative;z-index:1;}
   font-size:0.82rem;color:var(--cream-dim);line-height:1.7;
 }
 
-/* ── USE CASES ── */
+/* ── FEATURED WORK ── */
 .cases-grid{
   display:grid;grid-template-columns:1fr 1fr;
   gap:1px;background:var(--border);
@@ -515,6 +521,15 @@ section{padding:6rem 0;position:relative;z-index:1;}
 }
 .case-card:hover{background:var(--bg-card2);}
 
+.case-card--featured{
+  grid-column:1/-1;
+  display:grid;grid-template-columns:1fr 1.15fr;
+  gap:2rem;align-items:stretch;
+}
+.case-card--featured .work-img-wrap{
+  margin-bottom:0;aspect-ratio:auto;height:100%;min-height:260px;
+}
+
 .case-num{
   font-family:var(--mono);font-size:0.62rem;
   letter-spacing:0.15em;color:var(--copper);
@@ -523,11 +538,62 @@ section{padding:6rem 0;position:relative;z-index:1;}
 .case-num::after{content:'';flex:1;height:1px;background:var(--border2);}
 
 .case-title{font-size:0.98rem;font-weight:600;margin-bottom:0.6rem;}
-.case-body{font-size:0.83rem;color:var(--cream-dim);line-height:1.75;margin-bottom:1rem;}
+.case-body{font-size:0.83rem;color:var(--cream-dim);line-height:1.75;margin-bottom:0.85rem;}
+.case-solves{font-size:0.8rem;color:var(--cream-dim);line-height:1.6;margin-bottom:1rem;}
+.case-solves strong{
+  font-family:var(--mono);font-size:0.65rem;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--copper);
+  margin-right:0.4rem;
+}
 .case-tags{
   font-family:var(--mono);font-size:0.58rem;
   letter-spacing:0.14em;text-transform:uppercase;color:var(--copper);
 }
+
+/* work item image, with a clean fallback for screenshots not yet added */
+.work-img-wrap{
+  position:relative;margin-bottom:1.25rem;aspect-ratio:16/9;
+  border:1px solid var(--border);border-radius:3px;overflow:hidden;
+  background:var(--bg-card2);
+}
+.work-img-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;display:block;
+}
+.work-img-wrap.img-fallback img{display:none;}
+.work-img-fallback{
+  display:none;position:absolute;inset:0;
+  align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;
+  background:linear-gradient(135deg,rgba(195,122,63,0.1),transparent 60%),var(--bg-card2);
+}
+.work-img-wrap.img-fallback .work-img-fallback{display:flex;}
+.work-fallback-icon{font-family:var(--mono);font-size:1.6rem;color:var(--copper);opacity:0.55;}
+.work-fallback-label{
+  font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--cream-dim);
+}
+
+@media(max-width:960px){
+  .case-card--featured{grid-template-columns:1fr;}
+}
+
+/* ── READINESS ── */
+.readiness-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.5rem 2rem;margin:2.25rem 0 2.5rem;
+}
+.readiness-item{display:flex;flex-direction:column;gap:0.35rem;}
+.readiness-label{
+  font-family:var(--mono);font-size:0.6rem;
+  letter-spacing:0.13em;text-transform:uppercase;color:var(--cream-dim);
+}
+.readiness-value{
+  font-family:var(--mono);font-size:0.92rem;font-weight:600;color:var(--cream);
+}
+.readiness-actions{
+  display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;
+  padding-top:1.5rem;border-top:1px solid var(--border);
+}
+.readiness-note{font-size:0.78rem;color:var(--cream-dim);line-height:1.6;max-width:460px;}
 
 /* ── CONTACT ── */
 #contact{
@@ -756,10 +822,12 @@ footer{
   .process-left{border-right:none;border-bottom:1px solid var(--border);}
   .cases-grid{grid-template-columns:1fr;}
   .contact-wrap{grid-template-columns:1fr;}
+  .readiness-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:640px){
   .services-grid{grid-template-columns:1fr;}
   .problem-grid{grid-template-columns:1fr;}
+  .readiness-grid{grid-template-columns:1fr;}
   .plain-panel{padding:1.75rem;}
   .form-row{grid-template-columns:1fr;}
   .nav-links{
@@ -804,7 +872,8 @@ footer{
       <li><a href="#hero">Home</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
-      <li><a href="#work">Use Cases</a></li>
+      <li><a href="#work">Featured Work</a></li>
+      <li><a href="#readiness">Readiness</a></li>
       <li><a href="#articles">Articles</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -824,27 +893,29 @@ footer{
           <span class="status-dot"></span>
           <span>Automation + AI + Cloud</span>
           <span style="color:var(--border2);margin:0 0.25rem;">|</span>
-          <span>Built for everyday business and enterprise scale</span>
+          <span>Small Business · Enterprise · Government</span>
         </div>
 
         <h1 class="hero-title">
-          Automating today.<br>
-          <span class="line2">Designing your</span><br>
-          <span class="accent">AI legacy.</span>
+          Automation, AI &amp; Software<br>
+          <span class="line2">Solutions Built Around How</span><br>
+          <span class="accent">Your Organization Works.</span>
         </h1>
 
+        <p class="hero-tagline">Automating today. Designing your AI legacy.</p>
+
         <p class="hero-sub">
-          Legacy Automations helps businesses of every size reduce repetitive work, connect the tools
-          they already use, and build smarter AI-powered systems — from everyday workflows to secure
-          enterprise automation and custom applications.
+          Legacy Automations helps small businesses, enterprises, and public-sector organizations
+          eliminate manual work, modernize systems, connect platforms, and build practical
+          AI-powered applications.
         </p>
 
         <div class="hero-actions">
           <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-            Tell Us What You Want to Automate
+            Start a Conversation
           </button>
           <button class="btn-ghost" onclick="document.querySelector('#work').scrollIntoView({behavior:'smooth'})">
-            Explore use cases →
+            Explore Our Work →
           </button>
         </div>
 
@@ -910,6 +981,8 @@ footer{
     <div class="ticker-item"><span class="ticker-sep">◆</span>Google Cloud</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>Custom Business Applications</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>APIs &amp; Integrations</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Document Intelligence</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Application Modernization</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>Governed AI</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>Business Process Automation</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>AI Assistants &amp; Agents</div>
@@ -918,6 +991,8 @@ footer{
     <div class="ticker-item"><span class="ticker-sep">◆</span>Google Cloud</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>Custom Business Applications</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>APIs &amp; Integrations</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Document Intelligence</div>
+    <div class="ticker-item"><span class="ticker-sep">◆</span>Application Modernization</div>
     <div class="ticker-item"><span class="ticker-sep">◆</span>Governed AI</div>
   </div>
 </div>
@@ -948,6 +1023,53 @@ footer{
         <strong>Bring us the business problem.</strong> We handle the automation, AI, cloud, integrations,
         security, and engineering behind it.
       </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE HELP -->
+<section id="who-we-help" style="position:relative;z-index:1;">
+  <div class="page">
+    <header class="reveal">
+      <p class="eyebrow">Who We Help</p>
+      <h2 class="section-title">Built around how your organization works</h2>
+      <p class="section-sub">
+        From a small business automating its first manual process to an agency or enterprise team
+        modernizing mission-critical systems — the approach stays the same: understand the real
+        problem, then engineer the right solution.
+      </p>
+    </header>
+
+    <div class="services-grid">
+      <article class="svc-card reveal" data-num="A">
+        <div class="svc-icon">🏪</div>
+        <h3 class="svc-title">Small Business</h3>
+        <p class="svc-body">
+          Practical automation and AI tools that reduce repetitive work, eliminate unnecessary
+          manual processes, and help smaller teams operate more efficiently.
+        </p>
+        <p class="svc-tags">Automation · AI Tools · Workflow Efficiency</p>
+      </article>
+
+      <article class="svc-card reveal" data-num="B">
+        <div class="svc-icon">🏢</div>
+        <h3 class="svc-title">Enterprise</h3>
+        <p class="svc-body">
+          Scalable applications, integrations, workflow automation, document intelligence, AI
+          solutions, and cloud modernization built for complex environments.
+        </p>
+        <p class="svc-tags">Integrations · Document Intelligence · Cloud Modernization</p>
+      </article>
+
+      <article class="svc-card reveal" data-num="C">
+        <div class="svc-icon">🏛️</div>
+        <h3 class="svc-title">Government &amp; Public Sector</h3>
+        <p class="svc-body">
+          Software development, application modernization, workflow automation, systems
+          integration, cloud solutions, document management, and AI-enabled support capabilities.
+        </p>
+        <p class="svc-tags">Systems Integration · Cloud · Document Management</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1003,6 +1125,26 @@ footer{
           workflow applications, and AI-enabled systems around the way your business actually operates.
         </p>
         <p class="svc-tags">Python · FastAPI · Cloud Apps · Databases · AI Integrations</p>
+      </article>
+
+      <article class="svc-card reveal" data-num="05">
+        <div class="svc-icon">📄</div>
+        <h3 class="svc-title">Document Intelligence &amp; Workflow</h3>
+        <p class="svc-body">
+          Turn stacks of documents into searchable, organized, review-ready information — with
+          approval workflows, version history, and access control built in from the start.
+        </p>
+        <p class="svc-tags">Document Intelligence · Search · Approvals · Version Control · RBAC</p>
+      </article>
+
+      <article class="svc-card reveal" data-num="06">
+        <div class="svc-icon">🔗</div>
+        <h3 class="svc-title">Application Modernization &amp; Systems Integration</h3>
+        <p class="svc-body">
+          Upgrade legacy systems, connect platforms that don't talk to each other, and modernize
+          the applications your organization depends on — without disrupting how your team works today.
+        </p>
+        <p class="svc-tags">Legacy Modernization · APIs · Systems Integration · Migration</p>
       </article>
     </div>
   </div>
@@ -1072,61 +1214,176 @@ footer{
   </div>
 </section>
 
-<!-- USE CASES -->
+<!-- FEATURED WORK -->
 <section id="work" style="position:relative;z-index:1;">
   <div class="page">
     <header class="reveal">
-      <p class="eyebrow">Sample Use Cases</p>
-      <h2 class="section-title">What this can look like in a real business</h2>
+      <p class="eyebrow">Featured Work</p>
+      <h2 class="section-title">Products and projects we've actually built</h2>
       <p class="section-sub">
-        Some businesses need a simple workflow. Others need AI, cloud infrastructure, custom applications,
-        or enterprise governance. These examples show the range.
+        From internal platforms to client engagements, these are real systems Legacy Automations has
+        designed, built, and shipped — not hypothetical examples.
       </p>
     </header>
 
     <div class="cases-grid">
+
+      <!-- VERA — flagship, spans full width -->
+      <article class="case-card case-card--featured reveal">
+        <div class="work-img-wrap">
+          <img src="assets/vera.png" alt="VERA document intelligence platform — review queue screen"
+               onerror="this.closest('.work-img-wrap').classList.add('img-fallback'); this.remove();"/>
+          <div class="work-img-fallback">
+            <span class="work-fallback-icon">▣</span>
+            <span class="work-fallback-label">VERA — preview coming soon</span>
+          </div>
+        </div>
+        <div>
+          <p class="case-num">Flagship Product</p>
+          <h3 class="case-title">VERA</h3>
+          <p class="case-body">
+            A document intelligence and workflow platform that turns scattered files into a single,
+            searchable system — with review queues, approvals, version history, and role-based access,
+            deployable inside your own cloud environment.
+          </p>
+          <p class="case-solves"><strong>Solves</strong>Teams drowning in documents that are hard to find, hard to track, and even harder to approve consistently.</p>
+          <p class="case-tags">Document Intelligence · Search · Version Control · Approval Workflows · RBAC / Identity · Customer-Owned Cloud</p>
+        </div>
+      </article>
+
       <article class="case-card reveal">
+        <div class="work-img-wrap">
+          <img src="assets/legacy-servicedesk.png" alt="Legacy ServiceDesk — internal service management dashboard"
+               onerror="this.closest('.work-img-wrap').classList.add('img-fallback'); this.remove();"/>
+          <div class="work-img-fallback">
+            <span class="work-fallback-icon">▣</span>
+            <span class="work-fallback-label">Preview coming soon</span>
+          </div>
+        </div>
         <p class="case-num">01</p>
-        <h3 class="case-title">Budget aggregation &amp; forecasting workflow</h3>
+        <h3 class="case-title">Legacy ServiceDesk</h3>
         <p class="case-body">
-          Instead of managers emailing spreadsheets and someone manually combining them, budget data is
-          collected, validated, analyzed, and turned into forecasts automatically. Leadership receives
-          an executive-ready summary without the usual spreadsheet chase.
+          A cloud-based internal service management platform that simplifies how requests, changes,
+          and support work move through your organization.
         </p>
-        <p class="case-tags">Data Aggregation · Forecasting · Executive Reporting</p>
+        <p class="case-solves"><strong>Solves</strong>Support requests and internal operations that get lost between email, spreadsheets, and tribal knowledge.</p>
+        <p class="case-tags">Service Request Management · Workflow Automation · Cloud Architecture · Operational Visibility</p>
       </article>
 
       <article class="case-card reveal">
+        <div class="work-img-wrap">
+          <img src="assets/budget-automation.png" alt="AI Budget Summary Automation"
+               onerror="this.closest('.work-img-wrap').classList.add('img-fallback'); this.remove();"/>
+          <div class="work-img-fallback">
+            <span class="work-fallback-icon">▣</span>
+            <span class="work-fallback-label">Preview coming soon</span>
+          </div>
+        </div>
         <p class="case-num">02</p>
-        <h3 class="case-title">AI assistant for internal tools</h3>
+        <h3 class="case-title">AI Budget Summary Automation</h3>
         <p class="case-body">
-          Employees can ask a company-specific AI assistant questions about policies, procedures, files,
-          or internal tools. With the right permissions, it can also help complete tasks such as access
-          requests, provisioning, or report generation.
+          A real solution built for Texas Pipe &amp; Supply that automatically collects, maps,
+          summarizes, forecasts, and reports budget information pulled from multiple business sources.
         </p>
-        <p class="case-tags">RAG · IAM-Aware Actions</p>
+        <p class="case-solves"><strong>Solves</strong>Finance teams manually chasing spreadsheets from every department just to build one leadership-ready report.</p>
+        <p class="case-tags">Financial Workflow Automation · Data Mapping · Forecasting · Automated Reporting · Executive Summaries</p>
       </article>
 
       <article class="case-card reveal">
+        <div class="work-img-wrap">
+          <img src="assets/atlas.png" alt="A.T.L.A.S. — Google Workspace Shared Drive automation"
+               onerror="this.closest('.work-img-wrap').classList.add('img-fallback'); this.remove();"/>
+          <div class="work-img-fallback">
+            <span class="work-fallback-icon">▣</span>
+            <span class="work-fallback-label">Preview coming soon</span>
+          </div>
+        </div>
         <p class="case-num">03</p>
-        <h3 class="case-title">Ops &amp; field automation</h3>
+        <h3 class="case-title">A.T.L.A.S.</h3>
         <p class="case-body">
-          Route changes, incidents, service requests, or field updates can automatically notify the right
-          people, update schedules, capture information, and keep operations moving without repeated
-          calls, texts, or manual updates.
+          Automated Template for Linked Accessed SharedDrives — a Google Workspace automation that
+          creates standardized Shared Drives, folder structures, permissions, and notifications
+          automatically, every time, the same way.
         </p>
-        <p class="case-tags">Scheduling · Alerts · Analytics</p>
+        <p class="case-solves"><strong>Solves</strong>Shared drives that get created inconsistently, with the wrong permissions, and no record of who set them up or why.</p>
+        <p class="case-tags">Google Workspace · Shared Drives · Automated Provisioning · Role-Based Permissions · Governance</p>
       </article>
 
       <article class="case-card reveal">
+        <div class="work-img-wrap">
+          <img src="assets/devbridge.png" alt="Legacy DevBridge — AI-assisted Apps Script development platform"
+               onerror="this.closest('.work-img-wrap').classList.add('img-fallback'); this.remove();"/>
+          <div class="work-img-fallback">
+            <span class="work-fallback-icon">▣</span>
+            <span class="work-fallback-label">Preview coming soon</span>
+          </div>
+        </div>
         <p class="case-num">04</p>
-        <h3 class="case-title">Governed access &amp; audits</h3>
+        <h3 class="case-title">Legacy DevBridge</h3>
         <p class="case-body">
-          Keep groups, shared drives, sites, and permissions organized automatically with ownership checks,
-          scheduled access reviews, alerts for risky changes, and recurring cleanup tasks.
+          An AI-assisted development platform for Google Apps Script that connects everyday scripting
+          work to source control, engineering standards, and human approval — so AI-assisted code
+          still meets production standards.
         </p>
-        <p class="case-tags">Policy as Data · Compliance</p>
+        <p class="case-solves"><strong>Solves</strong>Apps Script code that lives outside version control, skips review, and quietly becomes a security or reliability risk.</p>
+        <p class="case-tags">Google Apps Script · GitHub · AI-Assisted Development · Governance · Human-in-the-Loop Approvals · Engineering Standards</p>
       </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNMENT & ENTERPRISE READINESS -->
+<section id="readiness" style="position:relative;z-index:1;">
+  <div class="page">
+    <div class="plain-panel reveal">
+      <p class="eyebrow">Government &amp; Enterprise Readiness</p>
+      <h2 class="section-title" style="max-width:640px;">Ready to Support Agencies, Prime Contractors &amp; Enterprise Teams</h2>
+      <p class="section-sub" style="max-width:640px;">
+        Legacy Automations is registered and positioned to support federal, state, and enterprise
+        engagements — from subcontracted automation work to direct contracts.
+      </p>
+
+      <div class="readiness-grid">
+        <div class="readiness-item">
+          <span class="readiness-label">SAM.gov Registration</span>
+          <span class="readiness-value">Active</span>
+        </div>
+        <div class="readiness-item">
+          <span class="readiness-label">Business Classification</span>
+          <span class="readiness-value">Small Business · Woman-Owned</span>
+        </div>
+        <div class="readiness-item">
+          <span class="readiness-label">UEI</span>
+          <span class="readiness-value">DY6EGJCLB1A7</span>
+        </div>
+        <div class="readiness-item">
+          <span class="readiness-label">CAGE Code</span>
+          <span class="readiness-value">265S5</span>
+        </div>
+        <div class="readiness-item">
+          <span class="readiness-label">Primary NAICS</span>
+          <span class="readiness-value">541512</span>
+        </div>
+        <div class="readiness-item">
+          <span class="readiness-label">Additional NAICS</span>
+          <span class="readiness-value">541511 · 541519</span>
+        </div>
+        <div class="readiness-item">
+          <span class="readiness-label">Location</span>
+          <span class="readiness-value">Houston, TX, USA</span>
+        </div>
+      </div>
+
+      <div class="readiness-actions">
+        <a class="btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;" href="assets/legacy-automations-capability-statement.pdf" download>
+          Download Capability Statement
+        </a>
+        <p class="readiness-note">
+          For teaming, subcontracting, or procurement questions, reach out through the contact form
+          below — we're glad to share additional documentation on request.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -1230,10 +1487,12 @@ footer{
   <div class="contact-wrap">
     <div class="contact-info reveal">
       <p class="eyebrow" style="margin-bottom:1.5rem;">Let's Build</p>
-      <h2 class="section-title" style="max-width:400px;">Tell us what is slowing your business down</h2>
+      <h2 class="section-title" style="max-width:400px;">Tell us what you want to improve, automate, modernize, or build</h2>
       <p style="font-size:0.9rem;color:var(--cream-dim);line-height:1.8;margin-bottom:2rem;font-weight:300;">
-        You do not need to know what technology you need. Tell us what your team does manually,
-        where work gets stuck, or what you wish your systems could do. We'll help map the right path forward.
+        You do not need to know which technology you need. Whether you're a small business automating
+        one manual process or an enterprise or government team modernizing a full system, tell us what
+        your team does manually, where work gets stuck, or what you wish your systems could do — we'll
+        help map the right path forward.
       </p>
 
       <h3 class="contact-info h3">Start a discovery call</h3>
@@ -1269,7 +1528,7 @@ footer{
             <input id="company" name="company" type="text" placeholder="Business name, department, or team..."/>
           </div>
           <div>
-            <label class="field-label" for="message">What do you want to automate?</label>
+            <label class="field-label" for="message">What do you want to improve, automate, modernize, or build?</label>
             <textarea id="message" name="message" placeholder="Tell us what happens today, what feels repetitive or frustrating, and what you wish happened automatically."></textarea>
           </div>
           <button class="btn-primary" type="submit" style="width:100%;justify-content:center;">
